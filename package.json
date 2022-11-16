@@ -1,0 +1,14 @@
+{
+  "name": "sky-tech",
+  "version": "1.0.0",
+  "description": "the landing age for skyar technologies ",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/Styles.css"
+  },
+  "author": "Taenda",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.3"
+  }
+}
