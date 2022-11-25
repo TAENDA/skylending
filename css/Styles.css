@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 80.5%;
+  font-size: 80.3%;
 }
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -14,16 +14,6 @@ body {
   color: #88888888;
   padding: 2rem;
 }
-@media 900px {
-  body {
-    font-size: 3px
-  }
-  h1 {
-    font-size: 2px;
-  }
-  
-}
-
 .header {
   height: 95vh;
   background-image: linear-gradient(rgba(58, 221, 202, 0.493),rgba(219, 143, 29, 0.499)), 
@@ -80,6 +70,7 @@ body {
   display: inline-block;
   transition: all .3s;
   position: relative;
+  margin-top: 5rem;
   
 }
 .btn-one {
@@ -128,6 +119,7 @@ body {
   text-decoration: none;
   cursor: pointer;
   background-color: #88888817;
+
   
  
 }
@@ -136,7 +128,7 @@ body {
   border: none;
 }
 .btn-form {
-  margin-top: 5rem;
+  margin-top: 3rem;
   color: chocolate;
   border-bottom: 2px solid coral;
 
@@ -207,19 +199,19 @@ body {
   height: 90vh;
 }
 .heading-secondary {
-  font-size:2.5rem;
+  font-size:2rem;
   text-transform: uppercase;
   font-weight: 700;
   color: transparent;
-  display: inline-block;
+  display: block;
   background-image: linear-gradient(to right, rgba(139,22,22, 0.8), rgba(219, 143, 28, 0.8));
   -webkit-background-clip: text;
-  height: auto;
-  margin-bottom: 2rem;
   align-items: center;
-  margin-left: 25%;
+  margin: 2rem 25%;
   transition: all .2s;
+  position: relative;
 }
+
 .heading-secondary:hover {
   transform: skew(-29deg);
     text-shadow: .4rem 1rem 3rem rgba(0, 0, 0, 0.3);
@@ -240,7 +232,7 @@ body {
 
 .composite {
   position: relative;
-  height: 65vh;
+  
 }
 .composite:hover .composite-photo:not(:hover) {
   transform: scale(.95);
@@ -329,7 +321,6 @@ body {
 
 
 .features {
-    height: 65vh;
     background-image: linear-gradient(to right, rgba(139,22,22, 0.8), rgba(219, 143, 28, 0.8)), url(../images/billboard.png); padding: 10rem 0;
     transform: skewY(-7deg);
     margin-top: 5rem;
@@ -343,6 +334,7 @@ body {
   border-radius: 3px;
   box-shadow: 0 1.54rem 5rem rgba(0, 0, 0, 0.3);
   position: relative;
+  margin-top: 8rem;
 
 
 }
@@ -389,12 +381,7 @@ width: 100%;
 height: 100%;
 backface-visibility: hidden;
 }
-
-.card-side-front {
-  background-color: #52262670;
-}
 .card-side-back {
-  background-color: #88888888;
   transform: rotateY(180deg);
 }
 .card-pic {
@@ -496,6 +483,7 @@ backface-visibility: hidden;
   width: 16rem;
   height: 16rem;
   float: left;
+  margin: .5rem;
   shape-outside: circle(50% at 50% 50%);
   -webkit-shape-outside: circle(50% at 50% 50%);
   clip-path: circle(50% at 50% 50%);
@@ -555,16 +543,19 @@ backface-visibility: hidden;
 .book {
   background-image: linear-gradient(110.5deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 50%), url(../images/discover.png);
   background-size: 100%;
-  height: 50rem;
   border-radius: 3px;
   box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.7);
 } 
 .book-form {
   width: 50%;
+  height: auto;
   padding: 5rem;
 }
 .form-group:not(:last-child) {
   margin-bottom: 2.2rem;
+}
+.form h2 {
+  margin: 2rem 0;
 }
 .form-input {
   font-size: 1.6rem;
@@ -593,7 +584,7 @@ backface-visibility: hidden;
 .form-input:placeholder-shown + .form-label {
   opacity: 0;
   visibility: hidden;
-  transform: translatey(-3.5rem);
+  transform: translateY(-3.5rem);
 }
 .form-label {
 color: darkred;
@@ -617,6 +608,7 @@ transition: all .3s;
   cursor: pointer;
   position: relative;
   padding-left: 4rem;
+
 } 
 .form-radio-btn {
 height: 2.5rem;
@@ -819,9 +811,437 @@ top: -.75rem;
 .nav-span::after {
   top: .8rem;
 }
-.nav-span::before {
+.popup-container {
+  height: 100vh;
+  width: 100%;
+  background-color:rgba(0, 0, 0, 0.9);
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .5s;
+}
+.popup-container:target {
+  opacity: 1;
+  visibility: visible;
+}
+.popup-container:target .popup {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+.pop-exit:link,
+.pop-exit:active {
+  color: black;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 3.2rem;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .22s;
+  line-height: 1;
+}
+.pop-exit:hover {
+  transform: rotate(360deg);
+  color: chocolate;
+}
+.popup {
+  width: 75%;
+  background-color: #fff;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)  scale(.1);
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.9);
+  display: table;
+  overflow: hidden;
+  border-radius: 4px;
+  opacity: 0;
+  transition:all .42s  .22s;
+  
+}
+.pop-left {
+  width: 33.3333333%;
+  display: table-cell;
+}
+.pop-right {
+  width: 66.6666665%;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 2.4rem 4rem;
+  color: darkslateblue;
+}
+.pop-text {
+  font-size: 1.4;
+  margin-bottom: 1.8rem;
+  color: rgb(186, 91, 23);
+  column-count: 2;
+  column-gap: 2.4rem;
+  hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.pop-img {
+  display: block;
+  width: 100%;
+
 
 }
-.nav-span::after {
-
+.btn-pop:link,
+.btn-pop:active {
+  border-bottom: 1px solid transparent;
+  transition: all .5s;
 }
+.btn-pop:hover,
+.btn-pop:focus {
+  transform: scale(1.2);
+  background-image: linear-gradient(rgb(219, 197, 123,0.9), rgba(136, 136, 136, 0.899)) ;
+}
+@media (max-width: 900px) {
+  .header {
+    height: 85vh;
+  }
+  [class^="col-"] {
+    width: 100%;
+  }
+  [class^="col-"]:not(:last-child) {
+    margin-right: 0;
+    margin-bottom: 4rem;
+  }
+  .row:not(:last-child) {
+    margin-bottom: 4rem;
+  }
+  .row {
+    max-width: 45rem;
+    padding: 0 2.5rem;
+  }
+  .navigation-btn {
+    top: 1rem;
+    right: 1rem;
+
+  }
+  .navigation-background {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+  .footer-nav {
+  width: 100%;
+  text-align: center;
+  }
+  .copyright {
+    width: 100%;
+    float: none;
+
+  }
+  .about {
+    padding: 10rem 2.5rem 2rem;
+  }
+  .heading-secondary {
+    font-size: .5rem;
+    align-items: center;
+    align-self: center;
+  }
+    form h2 {
+    margin: 1rem 0;
+  }
+  .heading-secondary:hover {
+    transform: skew(0 );
+      text-shadow: none;
+  }
+  .heading-tertiary {
+    font-size: .3rem;
+  }
+  .paragraph {
+    font-size: 0.8rem;
+    color: darkred;
+  }
+  .paragraph:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+  
+  .composite {
+    position: relative;
+    margin-top: 6rem;
+    
+  }
+  .composite:hover .composite-photo:not(:hover) {
+    transform: scale(0);
+
+  }
+  .composite-photo {
+    width: 33.3333333%;
+    box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.3);
+    position: relative;
+    border: 2px solid chocolate;
+    float: left;
+
+  }
+  
+  .composite-photo-p1{
+    left: 0;
+    top: 0;
+    
+  }
+  .composite-photo-p2{
+    right: 0;
+    top: -2rem;
+    z-index: 100;
+    transform: scale(1.2);
+    
+  }
+  .composite-photo-p3{
+    left: 0;
+    top: 0;
+  }
+  .composite-photo:hover {
+    transform: scale(0) translateY(0);
+    box-shadow: 0 2.4rem 4rem rgba(0, 0, 0, 0.3);
+    z-index: 30;
+    outline: none;
+    border: none; 
+  }  
+  .features {
+      margin-top: 2rem;
+      
+  }
+  .feature-box {
+    padding: 1.5rem;
+    margin: 1rem;
+  
+  
+  }
+  .feature-box-icon {
+    font-size: 4rem;
+  }
+  .feature-box:hover {
+    animation: bounce 0s infinite;
+  }
+  .recommended-course {
+    padding-top: 6rem;
+  }
+  .flipcard {
+    height: auto;
+    background-color: bisque;
+  }
+  .card {
+    height: auto;
+    position: relative;
+  }
+  .flipcard:hover .card {
+    transform: rotateY(0);
+  }
+  .card-side-front, .card-side-back {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  }
+  
+  .card-side-back {
+    transform: rotateY(0);
+    /*clip-path: polygon(0 0, 100% 0%, 100% 82%, 0 100%)*/
+    clip-path: polygon(0 18%, 100% 0%, 100% 100%, 0 100%)
+  }
+  .card-pic1, .b1 {
+    background-image: linear-gradient(to right, rgba(139,22,22, 0.8), rgba(219, 143, 28, 0.8)), url(../images/cardOne.png);
+  }
+  .card-pic3, .b2 {
+    background-image: linear-gradient(to right, rgba(118, 181, 46, 0.8), rgba(43, 143, 209, 0.8)), url(../images/T-SHIRT.png);
+  }
+  .card-pic2, .b3 {
+    background-image: linear-gradient(to right, rgba(189, 120, 17, 0.542), rgba(132, 29, 173, 0.8)), url(../images/boss.png);
+  } 
+  .card-price {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    width: 100%;
+    padding: 4rem;
+  }
+  .price-box {
+    text-align: center;
+    color: #fff;
+  }
+  .price-only {
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+  .price-value {
+    font-size: 4rem;
+    font-weight: 100;
+  }
+  .story-heading {
+    margin: 0;
+  }
+  .stories {
+    padding: 2rem 0;
+    position: relative;
+  }
+  .story {
+    width: 100%;
+    margin: 2rem auto 1rem;
+    box-shadow: 0 3rem 5remm rgba(0, 0, 0, 0.7);
+    background-color: rgb(220, 176, 176, .4);
+    border-radius: 4px;
+    padding: 2rem;
+    color: black;
+    transform: skewX(0)deg;
+    -moz-transform: skewX(0);
+    -webkit-transform: skewX(0);
+  }
+  
+  .story:hover .story-cap {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+  .story:hover .story-image {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(9px) brightness(50%);
+  }
+  .story-shape {
+    width: 16rem;
+    height: 16rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(0) skew(0);
+    position: relative;
+  }
+  .story-image {
+    height: 100%;
+    width: auto;
+    transform: translateX(-4rem) scale(1.2);
+    transition: all .5s;
+  }
+  .story-text {
+    transform: skew(0);
+    -moz-transform: skew(0);
+    font-size: 0.09rem;
+ }
+  .read-all {
+    text-align: center;
+    
+  }
+  .enroll-btn,.enroll-btn:link, .enroll-btn:active {
+    margin-top: 5rem;
+    font-size: 2rem;
+  }
+  .btn,
+.btn:link,
+.btn:visited {
+  margin-top: 2;
+}
+.btn-form {
+  margin-top: 1rem;
+}
+  .btn-stories {
+    background-color: rgb(237, 208, 208);
+    color: darkred;
+    margin-top: 0;
+  }
+  .bookings {
+    padding: 2rem;
+  }
+  .book {
+    background-image: linear-gradient( rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.5) 100%, transparent 50%), url(../images/discover.png);
+    background-size: cover;
+    box-shadow: 0 4rem 3rem rgba(0, 0, 0, 0.7);
+  } 
+  .book-form {
+    width: 100%;
+    height: fit-content;
+    padding: 2rem;
+  }
+  .form-group:not(:last-child) {
+    margin-bottom: 1.7rem;
+  }
+  
+  .form-radio-group {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+ 
+  .popup-container {
+    height: 100vh;
+    width: 100%;
+    background-color:rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s;
+  }
+  .popup-container:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  .popup-container:target .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .pop-exit:link,
+  .pop-exit:active {
+    color: black;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 3.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .22s;
+    line-height: 1;
+  }
+  .pop-exit:hover {
+    transform: rotate(360deg);
+    color: chocolate;
+  }
+  .popup {
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)  scale(.1);
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.9);
+    display: table;
+    overflow: hidden;
+    border-radius: 4px;
+    opacity: 0;
+    transition:all .42s  .22s;
+    
+  }
+  .pop-left {
+    width: 33.3333333%;
+    
+  }
+  .pop-right {
+    width: 66.6666665%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 2.4rem 4rem;
+    color: darkslateblue;
+  }
+  .pop-text {
+    font-size: 1.4;
+    margin-bottom: 1.8rem;
+    color: rgb(186, 91, 23);
+    column-count: 2;
+    column-gap: 2.4rem;
+    hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .pop-img {
+    display: block;
+    width: 100%;
+  }
+  }
+  
